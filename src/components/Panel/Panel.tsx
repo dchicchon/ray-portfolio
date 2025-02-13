@@ -10,7 +10,7 @@ function Panel(props: PanelProps) {
     <Box
       ref={props.ref}
       sx={{
-        border: '1px solid black',
+        // border: '1px solid black',
         minHeight: '100vh',
         display: 'flex',
       }}
