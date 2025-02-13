@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid2';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import Panel from './components/Panel';
 import ScrollLink from './components/ScrollLink';
@@ -42,6 +43,7 @@ const theme = createTheme({
 });
 
 function Home() {
+  const matches = useMediaQuery('(min-width:600px)');
   const aboutRef = useRef(null);
   const workRef = useRef(null);
   const contactRef = useRef(null);
@@ -56,7 +58,7 @@ function Home() {
             border: '1px solid black',
             width: '100%',
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'space-around',
             alignItems: 'center',
           }}
         >
@@ -71,11 +73,14 @@ function Home() {
             <Typography variant="h2">Ray Salazar</Typography>
             <Typography variant="h5">Tailor</Typography>
           </Box>
-          <Box>
-            <ScrollLink ref={aboutRef} section="About" />
-            <ScrollLink ref={workRef} section="Work" />
-            <ScrollLink ref={contactRef} section="Contact" />
-          </Box>
+
+          {matches && (
+            <Box>
+              <ScrollLink ref={aboutRef} section="About" />
+              <ScrollLink ref={workRef} section="Work" />
+              <ScrollLink ref={contactRef} section="Contact" />
+            </Box>
+          )}
         </Box>
       </Panel>
       <Panel ref={aboutRef}>
