@@ -25,7 +25,10 @@ function Image(props: ImageProps) {
       onClick={() => {
         console.log('check');
       }}
-      size={6}
+      size={{
+        sm: 12,
+        md: 6,
+      }}
     >
       <Box sx={sx}>
         <img height="100%" width="100%" alt={props.name} src={props.image} />

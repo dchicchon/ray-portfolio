@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid2';
 
@@ -45,16 +46,15 @@ function Home() {
   const aboutRef = useRef(null);
   const workRef = useRef(null);
   const contactRef = useRef(null);
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box>
+      <Stack gap={5}>
         <Panel ref={aboutRef}>
           <Box
             sx={{
+              width: '100%',
               display: 'flex',
-              height: '100%',
               justifyContent: 'center',
               alignItems: 'center',
             }}
@@ -70,7 +70,6 @@ function Home() {
               <Typography variant="h2">Ray Salazar</Typography>
               <Typography variant="h5">Tailor</Typography>
             </Box>
-            
             <Box>
               <ScrollLink ref={aboutRef} section="About" />
               <ScrollLink ref={workRef} section="Work" />
@@ -81,30 +80,25 @@ function Home() {
         <Panel ref={aboutRef}>
           <Box
             sx={{
+              width: '100%',
               display: 'flex',
-              height: '100%',
+              flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
             }}
           >
-            <Box
-              sx={{
-                width: 750,
-              }}
-            >
-              <Typography variant="h2">About</Typography>
-              <Typography variant="h6">
-                Ray Salazar is a tailor based in the San Francisco Bay Area. Ray works on
-                a variety of projects such as bags, jackets, and custom work.
-              </Typography>
-            </Box>
+            <Typography variant="h2">About</Typography>
+            <Typography variant="h6">
+              Ray Salazar is a tailor based in the San Francisco Bay Area. Ray works on a
+              variety of projects such as bags, jackets, and custom work.
+            </Typography>
           </Box>
         </Panel>
         <Panel ref={workRef}>
           <Box
             sx={{
+              width: '100%',
               display: 'flex',
-              height: '100%',
               alignItems: 'center',
               justifyContent: 'center',
             }}
@@ -128,7 +122,7 @@ function Home() {
           <Box
             sx={{
               display: 'flex',
-              height: '100%',
+              width: '100%',
               alignItems: 'center',
               justifyContent: 'center',
             }}
@@ -140,7 +134,7 @@ function Home() {
             </Box>
           </Box>
         </Panel>
-      </Box>
+      </Stack>
     </ThemeProvider>
   );
 }

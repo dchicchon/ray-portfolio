@@ -9,8 +9,10 @@ function Panel(props: PanelProps) {
   return (
     <Box
       ref={props.ref}
-      style={{
-        height: '100vh',
+      sx={{
+        border: '1px solid black',
+        minHeight: '100vh',
+        display: 'flex',
       }}
     >
       {props.children}
