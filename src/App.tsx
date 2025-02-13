@@ -4,6 +4,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid2';
 
 import Panel from './components/Panel';
 import ScrollLink from './components/ScrollLink';
@@ -13,9 +14,24 @@ import './App.css';
 
 const projects = [
   {
-    name: '',
+    name: 'Project 1',
     image:
       'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRl5N6I7Fzc_6hEIMygNe9nv6KNab1sJXlsFp14GeKsoYQLiqNHghDZbjOnWp0tlygFYhSg_0KC5pp7LRBouxFLWp_EdriIivmtpEmHY6k&usqp=CAc',
+  },
+  {
+    name: 'Project 2',
+    image:
+      'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSATaJLVqp-lpOIpE_e0lHne9pJCeWRRnFAo2uYroqCxnWFeBgoiZKGU_QyUoWXwY4dqp00adKG3ty8t9X2nf4Qe_uIAQ5Jnyop0nbJG09vh-_AntlvE0NZaFEbTCutD2aMcyn7HWI&usqp=CAc',
+  },
+  {
+    name: 'Project 3',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3fHby52n118Sfq2iX-8oT_zbS-Bp1DsP_EA&s',
+  },
+  {
+    name: 'Project 4',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQanC03K2bmY_vcNWTXOmyw9vP9OpMh0YD-xg&s',
   },
 ];
 
@@ -40,7 +56,6 @@ function Home() {
               display: 'flex',
               height: '100%',
               justifyContent: 'center',
-              gap: 20,
               alignItems: 'center',
             }}
           >
@@ -55,6 +70,7 @@ function Home() {
               <Typography variant="h2">Ray Salazar</Typography>
               <Typography variant="h5">Tailor</Typography>
             </Box>
+            
             <Box>
               <ScrollLink ref={aboutRef} section="About" />
               <ScrollLink ref={workRef} section="Work" />
@@ -93,11 +109,18 @@ function Home() {
               justifyContent: 'center',
             }}
           >
-            <Typography variant="h2">Work</Typography>
-            <Box>
-              {projects.map((project, i) => (
-                <Image key={i} image={project.image} />
-              ))}
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              <Typography variant="h2">Work</Typography>
+              <Grid container>
+                {projects.map((project, i) => (
+                  <Image key={i} name={project.name} image={project.image} />
+                ))}
+              </Grid>
             </Box>
           </Box>
         </Panel>
