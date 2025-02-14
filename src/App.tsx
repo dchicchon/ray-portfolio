@@ -98,6 +98,7 @@ function Home() {
         >
           <Box
             sx={{
+              my: 5,
               display: 'flex',
               flexDirection: 'column',
               gap: 3,
@@ -108,6 +109,7 @@ function Home() {
               {projects.map((project, i) => (
                 <ImageLink
                   key={i}
+                  id={i}
                   description={project.description}
                   name={project.name}
                   image={project.image}

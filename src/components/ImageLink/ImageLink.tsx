@@ -10,6 +10,7 @@ interface ImageLinkProps {
   image: string;
   name: string;
   description: string;
+  id: number;
 }
 
 function ImageLink(props: ImageLinkProps) {
@@ -42,7 +43,7 @@ function ImageLink(props: ImageLinkProps) {
           }}
           to="/project/$projectId"
           params={{
-            projectId: props.name,
+            projectId: props.id,
           }}
         >
           <Image image={props.image} name={props.name} />
