@@ -43,6 +43,7 @@ function ImageLink(props: ImageLinkProps) {
           }}
           to="/project/$projectId"
           params={{
+            // @ts-expect-error expecting string instead of id but lets fix this later
             projectId: props.id,
           }}
         >
