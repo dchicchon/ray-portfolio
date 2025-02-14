@@ -1,4 +1,5 @@
-import Box from '@mui/material/Box';
+import { useState } from 'react';
+import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid2';
 import { Link } from '@tanstack/react-router';
 
@@ -14,12 +15,13 @@ interface ImageLinkProps {
 }
 
 function ImageLink(props: ImageLinkProps) {
+  const [hover, setHover] = useState(false);
+
   const matches = useMediaQuery('(min-width:600px)');
   const sx: SxProps = {
     cursor: 'pointer',
     display: 'flex',
     width: matches ? '75%' : '100%',
-    //   height: '100%',
   };
 
   return (
@@ -35,7 +37,16 @@ function ImageLink(props: ImageLinkProps) {
         md: 6,
       }}
     >
-      <Box sx={sx}>
+      <Paper
+        onMouseEnter={() => {
+          setHover(true);
+        }}
+        onMouseLeave={() => {
+          setHover(false);
+        }}
+        elevation={hover ? 7 : 4}
+        sx={sx}
+      >
         <Link
           style={{
             width: '100%',
@@ -49,7 +60,7 @@ function ImageLink(props: ImageLinkProps) {
         >
           <Image image={props.image} name={props.name} />
         </Link>
-      </Box>
+      </Paper>
     </Grid>
   );
 }

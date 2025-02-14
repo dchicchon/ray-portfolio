@@ -1,12 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Image from '../../components/Image';
+import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid2';
+import { useMediaQuery } from '@mui/material';
 
+import Image from '../../components/Image';
 import { projects } from '../../utils/data';
 import Link from '../../components/Link';
-import { useMediaQuery } from '@mui/material';
 
 export const Route = createFileRoute('/project/$projectId')({
   component: Project,
@@ -33,7 +34,6 @@ function Project() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-around',
-            borderRight: '1px solid black',
           }}
         >
           <Box
@@ -56,11 +56,18 @@ function Project() {
             height: '100%',
           }}
         >
-          <Image image={project!.image} name={project!.name} />
+          <Paper
+            elevation={7}
+            sx={{ height: '100%' }}
+          >
+            <Image image={project!.image} name={project!.name} />
+          </Paper>
         </Grid>
       </Grid>
     );
   }
+
+  // MOBILE
   return (
     <Grid
       container
