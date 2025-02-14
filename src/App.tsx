@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
@@ -9,32 +8,10 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 import Panel from './components/Panel';
 import ScrollLink from './components/ScrollLink';
-import Image from './components/Image';
+import ImageLink from './components/ImageLink';
+import { projects } from './utils/data';
 
 import './App.css';
-
-const projects = [
-  {
-    name: 'Project 1',
-    image:
-      'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRl5N6I7Fzc_6hEIMygNe9nv6KNab1sJXlsFp14GeKsoYQLiqNHghDZbjOnWp0tlygFYhSg_0KC5pp7LRBouxFLWp_EdriIivmtpEmHY6k&usqp=CAc',
-  },
-  {
-    name: 'Project 2',
-    image:
-      'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSATaJLVqp-lpOIpE_e0lHne9pJCeWRRnFAo2uYroqCxnWFeBgoiZKGU_QyUoWXwY4dqp00adKG3ty8t9X2nf4Qe_uIAQ5Jnyop0nbJG09vh-_AntlvE0NZaFEbTCutD2aMcyn7HWI&usqp=CAc',
-  },
-  {
-    name: 'Project 3',
-    image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3fHby52n118Sfq2iX-8oT_zbS-Bp1DsP_EA&s',
-  },
-  {
-    name: 'Project 4',
-    image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQanC03K2bmY_vcNWTXOmyw9vP9OpMh0YD-xg&s',
-  },
-];
 
 const theme = createTheme({
   palette: {
@@ -55,7 +32,8 @@ function Home() {
           sx={{
             my: 10,
             mx: 5,
-            border: '1px solid black',
+            borderTop: '1px solid black',
+            borderBottom: '1px solid black',
             width: '100%',
             display: 'flex',
             justifyContent: 'space-around',
@@ -88,7 +66,8 @@ function Home() {
           sx={{
             my: 10,
             mx: 5,
-            border: '1px solid black',
+            borderTop: '1px solid black',
+            borderBottom: '1px solid black',
             width: '100%',
             display: 'flex',
             flexDirection: 'column',
@@ -108,7 +87,8 @@ function Home() {
           sx={{
             my: 10,
             mx: 5,
-            border: '1px solid black',
+            borderTop: '1px solid black',
+            borderBottom: '1px solid black',
             width: '100%',
             display: 'flex',
             alignItems: 'center',
@@ -124,7 +104,12 @@ function Home() {
             <Typography variant="h2">Work</Typography>
             <Grid container>
               {projects.map((project, i) => (
-                <Image key={i} name={project.name} image={project.image} />
+                <ImageLink
+                  key={i}
+                  description={project.description}
+                  name={project.name}
+                  image={project.image}
+                />
               ))}
             </Grid>
           </Box>
@@ -135,7 +120,8 @@ function Home() {
           sx={{
             my: 10,
             mx: 5,
-            border: '1px solid black',
+            borderTop: '1px solid black',
+            borderBottom: '1px solid black',
             display: 'flex',
             width: '100%',
             alignItems: 'center',
