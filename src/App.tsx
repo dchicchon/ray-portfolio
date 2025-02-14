@@ -20,7 +20,7 @@ const theme = createTheme({
 });
 
 function Home() {
-  const matches = useMediaQuery('(min-width:600px)');
+  const desktop = useMediaQuery('(min-width:600px)');
   const aboutRef = useRef(null);
   const workRef = useRef(null);
   const contactRef = useRef(null);
@@ -52,7 +52,7 @@ function Home() {
             <Typography variant="h5">Tailor</Typography>
           </Box>
 
-          {matches && (
+          {desktop && (
             <Box>
               <ScrollLink ref={aboutRef} section="About" />
               <ScrollLink ref={workRef} section="Work" />
@@ -73,10 +73,11 @@ function Home() {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
+            gap: 3,
           }}
         >
           <Typography variant="h2">About</Typography>
-          <Typography variant="h6">
+          <Typography width={desktop ? '50%' : '100%'} variant="h6">
             Ray Salazar is a tailor based in the San Francisco Bay Area. Ray works on a
             variety of projects such as bags, jackets, and custom work.
           </Typography>
@@ -99,6 +100,7 @@ function Home() {
             sx={{
               display: 'flex',
               flexDirection: 'column',
+              gap: 3,
             }}
           >
             <Typography variant="h2">Work</Typography>
@@ -126,13 +128,12 @@ function Home() {
             width: '100%',
             alignItems: 'center',
             justifyContent: 'center',
+            flexDirection: 'column',
+            gap: 3,
           }}
         >
-          <Box>
-            <Typography variant="h2">Contact</Typography>
-            <Typography variant="h6">Email: rayblesssalazar@gmail.com</Typography>
-            <Typography variant="h6">Phone: 800 - 800 - 8000</Typography>
-          </Box>
+          <Typography variant="h2">Contact</Typography>
+          <Typography variant="h6">Email: rayblesssalazar@gmail.com</Typography>
         </Box>
       </Panel>
     </ThemeProvider>
