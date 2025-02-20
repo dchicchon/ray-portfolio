@@ -17,7 +17,7 @@ function ImageLink(props: ImageLinkProps) {
   const sx: SxProps = {
     cursor: 'pointer',
     display: 'flex',
-    // height: desktop ? '75%' : '100%',
+    minHeight: '20rem',
     width: desktop ? '75%' : '100%',
   };
 

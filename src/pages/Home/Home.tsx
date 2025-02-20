@@ -66,7 +66,9 @@ function Home() {
             gap: 3,
           }}
         >
-          <Typography sx={{mt:5}} variant="h2">About</Typography>
+          <Typography sx={{ mt: 5 }} variant="h2">
+            About
+          </Typography>
           <Typography width={desktop ? '50%' : '100%'} variant="h6">
             I am a skilled tailoring and repair specialist with a passion for product
             longevity, sustainable fashion, and circularity. I specialize in garment
@@ -102,7 +104,9 @@ function Home() {
               gap: 3,
             }}
           >
-            <Typography sx={{mt: 5}} variant="h2">Work</Typography>
+            <Typography sx={{ mt: 5 }} variant="h2">
+              Work
+            </Typography>
             <br />
             <Typography variant="h3">Upcyling</Typography>
             <Grid container>
