@@ -1,7 +1,5 @@
-import { Link as RouterLink } from '@tanstack/react-router';
+import { Link as WouterLink } from 'wouter';
 import { Link as MuiLink } from '@mui/material';
-
-// import styles from './Link.module.css';
 
 interface LinkProps {
   color?: string;
@@ -14,7 +12,7 @@ export default function Link(props: LinkProps) {
     <MuiLink
       //   className={styles.link}
       color={props.color || 'primary'}
-      component={RouterLink}
+      component={WouterLink}
       to={props.to}
     >
       {props.children}

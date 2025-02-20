@@ -1,35 +1,33 @@
 import { useState } from 'react';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid2';
-import { Link } from '@tanstack/react-router';
-
+import Link from '../Link';
 import { SxProps } from '@mui/material';
 import Image from '../Image/Image';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { ProjectType } from '../../utils/data';
 
 interface ImageLinkProps {
-  image: string;
-  name: string;
-  description: string;
-  id: number;
+  project: ProjectType;
 }
 
 function ImageLink(props: ImageLinkProps) {
   const [hover, setHover] = useState(false);
-
-  const matches = useMediaQuery('(min-width:600px)');
+  const desktop = useMediaQuery('(min-width:600px)');
   const sx: SxProps = {
     cursor: 'pointer',
     display: 'flex',
-    width: matches ? '75%' : '100%',
+    // height: desktop ? '75%' : '100%',
+    width: desktop ? '75%' : '100%',
   };
 
   return (
     <Grid
       sx={{
+        mb: 5,
         display: 'flex',
         justifyContent: 'center',
-        p: 2,
+        p: desktop ? 8 : 0,
         width: '100%',
       }}
       size={{
@@ -44,21 +42,11 @@ function ImageLink(props: ImageLinkProps) {
         onMouseLeave={() => {
           setHover(false);
         }}
-        elevation={hover ? 7 : 4}
+        elevation={hover ? 24 : 12}
         sx={sx}
       >
-        <Link
-          style={{
-            width: '100%',
-            // height: '100%',
-          }}
-          to="/project/$projectId"
-          params={{
-            // @ts-expect-error expecting string instead of id but lets fix this later
-            projectId: props.id,
-          }}
-        >
-          <Image image={props.image} name={props.name} />
+        <Link to={`/projects/${props.project.id}`}>
+          <Image image={props.project!.images[0]} name={props.project.name} />
         </Link>
       </Paper>
     </Grid>
