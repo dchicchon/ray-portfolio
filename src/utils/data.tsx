@@ -8,12 +8,18 @@ const workshopFiles = import.meta.glob<{ default: string }>(
   '../assets/workshopday/*.jpg',
   { eager: true }
 );
-const backpackFiles = import.meta.glob<{ default: string }>('../assets/backpacks/*.{jpg,webp}', {
-  eager: true,
-});
-const kimonoFiles = import.meta.glob<{ default: string }>('../assets/kimono/*.{jpg,webp}', {
-  eager: true,
-});
+const backpackFiles = import.meta.glob<{ default: string }>(
+  '../assets/backpacks/*.{jpg,webp}',
+  {
+    eager: true,
+  }
+);
+const kimonoFiles = import.meta.glob<{ default: string }>(
+  '../assets/kimono/*.{jpg,webp}',
+  {
+    eager: true,
+  }
+);
 
 const kimonoImages = Object.values(kimonoFiles).map((mod) => mod.default);
 const workshopImages = Object.values(workshopFiles).map((mod) => mod.default);
@@ -30,8 +36,8 @@ export interface ProjectType {
 export const upcyclingProjects: Array<ProjectType> = [
   {
     id: 'upcycling-1',
-    name: 'Upcycling',
-    description: `Upcycled Aesop & Vans Tote Bag
+    name: 'Upcycled Aesop & Vans Tote Bag',
+    description: `
 Sustainability | Upcycling | Reinforced Construction
 
 Project Summary:
@@ -51,9 +57,9 @@ Precision sewing and attention to functional design`,
   },
   {
     id: 'upcycling-2',
-    name: 'Upcyling 2',
+    name: 'Upcycled Outerwear & Apparel Tote Bag Collection',
     description: `
-    Upcycled Outerwear & Apparel Tote Bag Collection
+   
 Sustainability | Upcycling | Product Circularity
 
 Project Summary:
@@ -76,9 +82,9 @@ Sewing, cutting, and assembly for functional design`,
 export const repairProjects: Array<ProjectType> = [
   {
     id: 'repair-1',
-    name: 'Kimono Project',
+    name: 'Robe Restoration',
     description: `
-      Repairs: Lightweight Cotton Robe Restoration
+    Repairs: Lightweight Cotton
 Garment Longevity | Delicate Fabric Repair | Seam Reconstruction
 
 Project Summary:
@@ -100,8 +106,8 @@ Restoring structural integrity while preserving garment design.
 
   {
     id: 'repair-2',
-    name: 'Backpack Project',
-    description: `Repairs: Denim & Technical Pack Restoration
+    name: 'Denim & Technical Pack Restoration',
+    description: `Repairs: 
 Garment Longevity | Heavyweight Materials | Technical Repair Techniques
 
 Project Summary:
