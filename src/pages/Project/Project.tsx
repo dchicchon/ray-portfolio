@@ -62,7 +62,6 @@ function Project() {
         }}
       >
         <Box
-          //   elevation={7}
           sx={{
             height: '100%',
             width: '100%',
@@ -70,7 +69,14 @@ function Project() {
         >
           <Grid gap={1} container>
             {project?.images.map((image, i) => (
-              <Grid key={i} size={5} flexGrow={1}>
+              <Grid
+                sx={{
+                  minHeight: '30rem',
+                }}
+                key={i}
+                size={desktop ? 5 : 12}
+                flexGrow={1}
+              >
                 <Image image={image} name={'image'} />
               </Grid>
             ))}
